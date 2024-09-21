@@ -59,8 +59,8 @@ The program is designed to find the top **K** integers from a predefined array. 
 ### File Structure
 
 - `top-k-byte-counting.c`: Main source file containing the implementation.
-<!-- - `top-k-byte-counting.cpp`: C++ version of the implementation (if applicable). -->
-<!-- - `byte-counting-sort.c`: Additional sorting implementation (if applicable). -->
+- `top-k-byte-counting.cpp`: C++ version of the implementation.
+- `byte-counting-sort.c`: Additional sorting implementation.
 
 ### Running the Program
 
