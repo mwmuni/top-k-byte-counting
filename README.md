@@ -1,6 +1,6 @@
 # Top K Byte Counting
 
-Top K Byte Counting is an efficient C implementation designed to identify the top **K** integers from a dataset using a byte-wise counting approach. This algorithm achieves linear time complexity, making it highly suitable for large datasets where traditional sorting or heap-based methods may be less efficient.
+Top K Byte Counting is an efficient C/C++ implementation designed to identify the top **K** integers from a dataset using a byte-wise counting approach. This algorithm achieves linear time complexity, making it highly suitable for large datasets where traditional sorting or heap-based methods may be less efficient.
 
 ## Table of Contents
 
