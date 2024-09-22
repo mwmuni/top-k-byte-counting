@@ -14,6 +14,7 @@ Top K Byte Counting is an efficient C/C++ implementation designed to identify th
     - [File Structure](#file-structure)
     - [Running the Program](#running-the-program)
   - [Algorithm Overview](#algorithm-overview)
+    - [Example Execution](#example-execution)
   - [Example](#example)
     - [Source Code Snippet](#source-code-snippet)
 
@@ -94,6 +95,48 @@ flowchart TD
     O -->|No| H
     H --> P[End find_top_k]
 ```
+
+### Example Execution
+
+Example Execution
+
+Given:
+
+std::vector<int> data = {399, 18, 512, 42, 123, 34, 255, 67, 89,
+                         101, 44, 111, 222, 333, 444, 555, 666, 777, 888, 999};
+const int K = 3;
+
+1. First Call: find_top_k(data, 0, top_k)
+
+Counts:
+
+Counts of the most significant byte values are calculated.
+
+
+Processing Bins:
+
+Start from bin 255 downto 0.
+
+Collect numbers from bins until top_k.size() >= K.
+
+
+
+2. Recursive Calls
+
+If a bin has more numbers than can fit in top_k, make a recursive call with byte_pos + 1.
+
+
+3. Termination
+
+The recursion continues until the top K numbers are found or all bytes are processed.
+
+
+4. Result
+
+top_k contains:
+
+[999, 888, 777]  // The top 3 numbers
+
 
 ## Example
 
