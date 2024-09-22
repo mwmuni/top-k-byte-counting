@@ -72,28 +72,28 @@ Upon execution, the program will output the top **K** numbers from the provided 
 
 ```mermaid
 flowchart TD
-    A[Start find_top_k(data, byte_pos, top_k)] --> B{Check base cases}
-    B -->|data is empty| C[Return]
-    B -->|top_k.size() >= K| C[Return]
-    B -->|byte_pos >= NUM_BYTES| C[Return]
-    B --> D[Initialize counts[0...255] to zero]
-    D --> E[For each num in data]
-    E --> F[Extract byte_value at byte_pos]
-    F --> G[Increment counts[byte_value]]
-    G --> H[For i from 255 downto 0]
-    H --> I{counts[i] == 0?}
+    A["Start find_top_k(data, byte_pos, top_k)"] --> B{"Check base cases"}
+    B -->|"data is empty"| C[Return]
+    B -->|"top_k.size() >= K"| C[Return]
+    B -->|"byte_pos >= NUM_BYTES"| C[Return]
+    B --> D["Initialize counts[0...255] to zero"]
+    D --> E["For each num in data"]
+    E --> F["Extract byte_value at byte_pos"]
+    F --> G["Increment counts[byte_value]"]
+    G --> H["For i from 255 downto 0"]
+    H --> I{"counts[i] == 0?"}
     I -->|Yes| H
-    I -->|No| J{top_k.size() + counts[i] <= K?}
-    J -->|Yes| K[Add nums with byte_value == i to top_k]
-    K --> L{top_k.size() >= K?}
+    I -->|No| J{"top_k.size() + counts[i] <= K?"}
+    J -->|Yes| K["Add nums with byte_value == i to top_k"]
+    K --> L{"top_k.size() >= K?"}
     L -->|Yes| C[Return]
     L -->|No| H
-    J -->|No| M[Create bin_numbers where byte_value == i]
-    M --> N[Recursive call find_top_k(bin_numbers, byte_pos + 1, top_k)]
-    N --> O{top_k.size() >= K?}
+    J -->|No| M["Create bin_numbers where byte_value == i"]
+    M --> N["Recursive call find_top_k(bin_numbers, byte_pos + 1, top_k)"]
+    N --> O{"top_k.size() >= K?"}
     O -->|Yes| C[Return]
     O -->|No| H
-    H --> P[End find_top_k]
+    H --> P["End find_top_k"]
 ```
 
 ### Example Execution
