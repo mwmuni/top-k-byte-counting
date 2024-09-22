@@ -13,6 +13,7 @@ Top K Byte Counting is an efficient C/C++ implementation designed to identify th
   - [Usage](#usage)
     - [File Structure](#file-structure)
     - [Running the Program](#running-the-program)
+  - [Algorithm Overview](#algorithm-overview)
   - [Example](#example)
     - [Source Code Snippet](#source-code-snippet)
 
@@ -65,6 +66,35 @@ The program is designed to find the top **K** integers from a predefined array. 
 ### Running the Program
 
 Upon execution, the program will output the top **K** numbers from the provided dataset.
+
+## Algorithm Overview
+
+Start find_top_k(data, byte_pos, top_k)
+|
+├── Check base cases:
+│   ├── If data is empty, return.
+│   ├── If top_k.size() >= K, return.
+│   └── If byte_pos >= NUM_BYTES, return.
+|
+├── Initialize counts[0...255] to zero.
+|
+├── For each num in data:
+│   ├── Extract byte_value at byte_pos.
+│   └── Increment counts[byte_value].
+|
+├── For i from 255 downto 0:
+│   ├── If counts[i] == 0, continue.
+│   ├── If top_k.size() + counts[i] <= K:
+│   │   ├── For each num in data:
+│   │   │   ├── If byte_value == i:
+│   │   │   │   └── Add num to top_k.
+│   │   └── Check if top_k.size() >= K, return if true.
+│   └── Else:
+│       ├── Create bin_numbers with nums where byte_value == i.
+│       ├── Recursive call find_top_k(bin_numbers, byte_pos + 1, top_k).
+│       └── Check if top_k.size() >= K, return if true.
+|
+└── End find_top_k
 
 ## Example
 
